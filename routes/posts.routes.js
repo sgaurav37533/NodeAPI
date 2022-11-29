@@ -17,14 +17,14 @@ router.post('/posts', async (req, res) => {
 
         return res.status(201).json({ post });
     } catch (error) {
-        console.log("internal error",error)
         res.status(500).json({ message: error.message });
     }
 });
 
 
 // Get all posts
-router.get('/posts', async (req, res) => { try {
+router.get('/posts', async (req, res) => {
+    try {
         const posts = await Post.findAll();
         return res.status(200).json({ posts });
     } catch (error) {
